@@ -1,16 +1,16 @@
 interface Props {
   children: string;
   disabled?: boolean;
-  onClick?: () => void;
+  onClickedButton?: (newChild: string) => void;
 }
 
-const Button = ({ children, onClick, disabled = false }: Props) => {
+const Button = ({ children, onClickedButton, disabled = false }: Props) => {
   return (
     <button
       type="button"
       className="btn btn-outline-secondary col-3"
       disabled={disabled}
-      onClick={onClick}
+      onClick={() => onClickedButton?.(children)}
     >
       {children}
     </button>
